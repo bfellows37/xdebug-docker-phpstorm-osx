@@ -24,7 +24,7 @@ Preferences -> Languages & Frameworks -> PHP -> Servers
 - Server: ```php``` (specify the one you configured)
 - IDE Key: ```PHPSTORM```
 
-###How to debug
+### How to debug
 
 Once the IDE and environment are configured, do a ```docker-compose up``` and then click the "telephone" icon next to the debug icon on the task runner tool. Put a breakpoint in the code, and then execute a page request.
 
