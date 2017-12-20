@@ -26,7 +26,7 @@ Preferences -> Languages & Frameworks -> PHP -> Servers
 
 ### How to debug
 
-Once the IDE and environment are configured, do a ```docker-compose up``` and then click the "telephone" icon next to the debug icon on the task runner tool. Put a breakpoint in the code, and then execute a page request.
+Once the IDE and environment are configured, do a ```docker-compose up``` and then click the "telephone" icon next to the debug icon on the task runner tool. Put a breakpoint in the code, and then execute a page request. Code should halt execution at your breakpoint and you should be able to do debuggy things like you would expect.
 
 References:
 - http://www.arroyolabs.com/2016/10/docker-xdebug/
