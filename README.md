@@ -31,3 +31,4 @@ Once the IDE and environment are configured, do a ```docker-compose up``` and th
 References:
 - http://www.arroyolabs.com/2016/10/docker-xdebug/
 - https://github.com/bfellows37/Expressive-Skeleton
+- http://geekyplatypus.com/dockerise-your-php-application-with-nginx-and-php7-fpm/
