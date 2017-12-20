@@ -1,0 +1,15 @@
+FROM php:5.6-fpm
+
+# Install xdebug and:
+# - specify the xdebug extension location and send it to a new xdebug.ini - the following lines are directives appended to this ini file
+# - set xdebug.remote_port=9000 :: this matches the [Debug Port] setting in [Preferences -> Languages & Frameworks -> PHP -> Debug]
+# - set xdebug.idekey=PHPSTORM :: this matches the [IDE Key] setting in [Preferences -> Languages & Frameworks -> PHP -> Debug -> DBGp Proxy]
+# then enable docker xdebug extension - I think this is built into the php:5.6-fpm base image and we might be able to use it because our environment is similar
+#
+RUN yes | pecl install xdebug \
+    && echo "zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20131226/xdebug.so" > /usr/local/etc/php/conf.d/xdebug.ini \
+    && echo "xdebug.remote_enable=on" >> /usr/local/etc/php/conf.d/xdebug.ini \
+    && echo "xdebug.remote_port=9000" >> /usr/local/etc/php/conf.d/xdebug.ini \
+    && echo "xdebug.remote_autostart=off" >> /usr/local/etc/php/conf.d/xdebug.ini \
+    && echo "xdebug.idekey=PHPSTORM" >> /usr/local/etc/php/conf.d/xdebug.ini \
+    && docker-php-ext-enable xdebug

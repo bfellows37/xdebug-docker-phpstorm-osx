@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+
+  www:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./app:/app
+      - ./nginx.conf:/etc/nginx/conf.d/site.conf
+
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile-php
+    expose:
+      - "9000"
+    volumes:
+      - ./app:/app
+    environment:
+      PHP_IDE_CONFIG: "serverName=php" # this matches the [Name] setting in [Preferences -> Languages & Frameworks -> PHP -> Servers] (see comments below)
+      PHP_XDEBUG_ENABLED: 1 # Set 1 to enable. # duh.
+      XDEBUG_CONFIG: remote_host=10.254.254.254 # this is the loopback alias you set up because you are using OSX
+
+## COMMENTS BELOW
+# set up a server by going to [Preferences -> Languages & Frameworks -> PHP -> Servers]
+# Host: (loopback alias because OSX) 10.254.254.254
+# Port: public port probably 80?
+# Debugger: xdebug
+# Use path mappings - this might be complicated with how the current docker infrastructure is configured; there are many paths to map
