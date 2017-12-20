@@ -2,7 +2,7 @@
 ## Example for configuring xdebug with PHPStorm and Docker nginx/php-fpm environment
 ### Important IDE and Environment Setup:
 
-**Edit /etc/hosts**:
+**Edit /etc/hosts** on the host machine:
 
 A the nginx configuration responds to a specific hostname.
 - Add: ```127.0.0.1 php-docker.local``` to match nginx.conf
