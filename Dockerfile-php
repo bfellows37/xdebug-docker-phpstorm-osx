@@ -13,3 +13,11 @@ RUN yes | pecl install xdebug \
     && echo "xdebug.remote_autostart=off" >> /usr/local/etc/php/conf.d/xdebug.ini \
     && echo "xdebug.idekey=PHPSTORM" >> /usr/local/etc/php/conf.d/xdebug.ini \
     && docker-php-ext-enable xdebug
+
+RUN apt-get update \
+    && apt-get install -y wget
+
+RUN wget -O phpunit https://phar.phpunit.de/phpunit-5.phar \
+    && chmod +x phpunit \
+    && mv phpunit /usr/local/bin/phpunit \
+    && phpunit --version
