@@ -1,7 +1,6 @@
 <?php
-use PHPUnit\Framework\TestCase;
 
-class debugmeTest extends TestCase {
+class debugmeTest extends BaseTest {
 
     function test_shouldLoadClass() {
         $werd = new debugme();
