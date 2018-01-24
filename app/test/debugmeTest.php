@@ -1,5 +1,4 @@
 <?php
-include_once(__DIR__.'/../test_autoload.php');
 use PHPUnit\Framework\TestCase;
 
 class debugmeTest extends TestCase {
