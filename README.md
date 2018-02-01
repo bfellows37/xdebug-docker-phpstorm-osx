@@ -4,29 +4,34 @@
 
 **Edit /etc/hosts** on the host machine:
 
-A the nginx configuration responds to a specific hostname.
-- Add: ```127.0.0.1 php-docker.local``` to match nginx.conf
+Preferences -> Languages and Frameworks -> PHP -> DBGp Proxy
+IDE key: PHPSTORM
+Host: 10.254.254.254
+Port: 9000
 
-**Create a loopback interface alias address**: ```sudo ifconfig en0 alias 10.254.254.254 255.255.255.0```
+Preferences -> Languages and Frameworks -> PHP -> Servers
+Name: docker-local
+Host: 10.254.254.254
+Port: 8080
+Debugger: Xdebug
+Use path mappings: app -> /app
 
-**Configure a php server in PHPStorm**:
+Preferences -> Languages and Frameworks -> PHP -> Test Frameworks
+(Add new)
+CLI interpreter: click the ellipsis to set up for docker-compose in this repo
+PHPUnit library: Path to phpunitnit.phar
+Path to phpunit.phar: /usr/local/bin/phpunit
 
-Preferences -> Languages & Frameworks -> PHP -> Servers
-- Name: ```php```
-- Host: ```10.254.254.254``` (same loopback alias as in previous step)
-- Port: ```8080``` (or whatever the public port is, I think)
-- Debugger: ```Xdebug```
-- Use port mappings: use judgment? For this example I mapped project's app folder to server's /app folder - more complicated projects might be more complicated.
-    
-**Add a Debug run configuration**:
-- PHP Remote Debug
-- Name: ```my xdebug```
-- Server: ```php``` (specify the one you configured)
-- IDE Key: ```PHPSTORM```
+Run configurations -> (create new) PHP Remote Debug
+Name: xdebug
+Filter debug connection by IDE key: checked
+Server: docker-local
+IDE key: PHPSTORM
 
-### How to debug
-
-Once the IDE and environment are configured, do a ```docker-compose up``` and then click the "telephone" icon next to the debug icon on the task runner tool. Put a breakpoint in the code, and then execute a page request. Code should halt execution at your breakpoint and you should be able to do debuggy things like you would expect.
+Run configurations -> (create new) Docker -> docker-compose
+Name: docker-compose
+Server: Docker (maybe need to create new)
+Compose file: docker-compose.yml (the one in this repo)
 
 References:
 - http://www.arroyolabs.com/2016/10/docker-xdebug/
