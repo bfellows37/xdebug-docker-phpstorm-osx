@@ -2,8 +2,6 @@
 ## Example for configuring xdebug with PHPStorm and Docker nginx/php-fpm environment
 ### Important IDE and Environment Setup:
 
-**Edit /etc/hosts** on the host machine:
-
 #### Preferences -> Languages and Frameworks -> PHP -> DBGp Proxy
 - IDE key: PHPSTORM
 - Host: 10.254.254.254
