@@ -31,6 +31,12 @@
 - Server: Docker (maybe need to create new)
 - Compose file: docker-compose.yml (the one in this repo)
 
+#### Run configurations -> (create new) PHPUnit
+- Name: test
+- Test scope: directory
+- Directory: [/path/to/repo]/app/test
+- Test runner options: —bootstrap /app/test_autoload.php
+
 References:
 - http://www.arroyolabs.com/2016/10/docker-xdebug/
 - https://github.com/bfellows37/Expressive-Skeleton
